@@ -8,11 +8,19 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit some common Lineage stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit some common stuff.
+$(call inherit-product, vendor/blaze/config/common_full_phone.mk)
 
-# Inherit from moonstone device
-$(call inherit-product, device/xiaomi/moonstone/device.mk)
+# specific flags
+TARGET_FACE_UNLOCK_SUPPORTED := true
+EXTRA_UDFPS_ANIMATIONS := false
+TARGET_SUPPORTS_BLUR := true
+
+# Project Blaze
+BLAZE_MAINTAINER := Kristoforusapm
+
+# GApps
+WITH_GAPPS := false
 
 PRODUCT_NAME := lineage_moonstone
 PRODUCT_DEVICE := moonstone
